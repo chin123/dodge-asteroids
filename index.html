@@ -1,0 +1,182 @@
+<!DOCTYPE html en="UTF8">
+<html>
+	<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+		<title>Dodge the asteroids!</title>
+<style>
+body {
+background-color : black;
+color : red;
+
+}	
+#maindiv{
+	position:absolute;
+	width:30px; height:30px;
+	top:40%;
+	left:45%;
+	background-color : yellow;
+	
+}
+
+.fallingast{
+	position:absolute;
+	height:20px;
+	width:20px;
+	background-color : red;
+}
+#startgame{
+	border : 1px solid blue;
+	border-radius : 5px;
+	position : absolute;
+	left : 30%;
+	top : 50%;
+	width : 30%;
+	height : 50px;
+	padding : 5px;
+}
+#starttext{
+	position : absolute;
+	left:30%;
+	top:30%;
+}
+#right{
+position : absolute;
+
+
+right :0;top:0 ;left:0;bottom:0;
+
+}
+
+</style>
+	</head>
+	<body>
+
+		<div id ="startgame"><div id="starttext""><strong>START</strong></div></div>
+		<div class="asteroid"></div>
+		<div id="maindiv"></div>
+	<div id="score"></div>
+	<div id="highscore"></div>
+	<div id="right"></div>
+	
+	</body>
+<script src="www/js/jquery-2.1.4.js"></script>
+<script>
+document.addEventListener("deviceready", gameready(), false);
+
+function gameready(){
+
+
+var mainship   = document.querySelector('#maindiv');
+var astfield = document.querySelector('#right');
+
+
+var maxX = astfield.clientWidth  - mainship.clientWidth;
+var maxY = astfield.clientHeight - mainship.clientHeight - 200;
+
+function handleOrientation(event) {
+  var x = event.beta;  // In degree in the range [-180,180]
+  var y = event.gamma; // In degree in the range [-90,90]
+
+  
+
+  // Because we don't want to have the device upside down
+  // We constrain the x value to the range [-90,90]
+  if (x >  90) { x =  90};
+  if (x < -90) { x = -90};
+
+y = -1 * y;
+  // To make computation easier we shift the range of 
+  // x and y to [0,180]
+  x += 90;
+  y += 90;
+
+  // 10 is half the size of the mainship
+  // It center the positioning point to the center of the mainship
+  mainship.style.top  = (maxX*x/180 - 10) + "px";
+  mainship.style.left = (maxY*y/180 - 10) + "px";
+}
+
+window.addEventListener('deviceorientation', handleOrientation);
+
+
+if(!(localStorage.getItem("highscore") === null)){
+high = window.localStorage.getItem("highscore");
+$("#highscore").html("Highscore: "+high);
+}
+else{$("#highscore").html("Highscore:0")}
+
+$('#maindiv').hide();
+$("#right").hide();
+$("#left").hide();
+function startgame(){
+$("#right").show();
+$("#left").show();
+function fall(blocktofall) {
+	
+      blocktofall.animate({ 'top': '99%' },3000, 
+	function(){$(this).remove();});
+	 }
+
+var score = 0;
+
+var addast = setInterval(function(){
+var fallingast = $('.asteroid').clone().removeClass('asteroid').addClass('fallingast').css({top:'-5px',left:Math.floor(Math.random()*99)+"%"}).insertAfter($('.asteroid'));
+fall(fallingast);
+},200);
+var timer = setInterval(function(){score+=100;$("#score").html("<strong>Score: "+score+"</strong>");},500);
+function highscore(){
+if(!(localStorage.getItem("highscore") === null)){
+var value = parseInt(window.localStorage.getItem("highscore"),10);
+if(value < score){
+	window.localStorage.setItem("highscore",score);
+}
+
+}
+else{window.localStorage.setItem("highscore",score);}
+}
+ function collision($div1, $div2) {
+      var x1 = $div1.offset().left;
+      var y1 = $div1.offset().top;
+      var h1 = $div1.outerHeight(true);
+      var w1 = $div1.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $div2.offset().left;
+      var y2 = $div2.offset().top;
+      var h2 = $div2.outerHeight(true);
+      var w2 = $div2.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+        
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+    }
+
+
+var isitcolliding = setInterval(function() {
+$('.fallingast').each(function(){
+	var answer = collision($('#maindiv'), $(this));
+if(answer){
+	alert("GAME OVER");
+	clearInterval(timer);
+	clearInterval(addast);
+	clearInterval(isitcolliding);
+	highscore();
+	window.location.reload();
+}
+});
+    
+}, 10);
+}
+$("#startgame").click(
+function(){
+	$("#startgame").slideUp();
+	$("#maindiv").show();
+	startgame();
+}
+);
+}
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.chinmaya.dodgeast" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Dodge Asteroids</name>
+    <description>
+        Dodge the asteroids!
+    </description>
+    <author>
+        Chinmaya Mahesh
+    </author>
+    <content src="index.html" />
+    
+    
+    <gap:plugin name="org.apache.cordova.console" />
+    
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.device-motion" />
+    <gap:plugin name="org.apache.cordova.device-orientation" />
+  
+   
+   
+    
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.media" />
+   
+    <gap:plugin name="org.apache.cordova.splashscreen" />
+    
+    <icon src="icon.png" />
+    
+    
+    
+   
+</widget>
