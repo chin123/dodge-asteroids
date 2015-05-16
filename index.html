@@ -4,7 +4,6 @@
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
 		<title>Dodge the asteroids!</title>
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <style>
 body {
 background-color : black;
@@ -76,7 +75,7 @@ right :0;top:0 ;left:0;bottom:0;
 	</body>
 <script src="www/js/jquery-2.1.4.js"></script>
 <script>
-document.addEventListener("deviceready", gameready, false);
+document.addEventListener("deviceready", gameready(), false);
 
 function gameready(){
 
@@ -195,7 +194,6 @@ if(answergood){
 }
 $("#startgame").click(
 function(){
-	
 	$("#startgame").slideUp();
 	$("#instructions").slideUp();
 	$("#maindiv").show();
