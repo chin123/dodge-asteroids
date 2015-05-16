@@ -53,12 +53,18 @@ position : absolute;
 right :0;top:0 ;left:0;bottom:0;
 
 }
+#instructions{
+	position : absolute;
+	left:30%;
+	top:65%;
+}
 
 </style>
 	</head>
 	<body>
 
-		<div id ="startgame"><div id="starttext""><strong>START</strong></div></div>
+		<div id ="startgame"><div id="starttext""><strong>START</strong></div></div><br>
+		<div id="instructions"><strong>Tile left to go right,tilt right to go left.<br>Collect the green blocks to get a score bonus.<br>Collecting the red blocks end the game.<br>Good Luck!</strong></div>
 		<div class="asteroid"></div>
 	<div class="good"></div>
 		<div id="maindiv"></div>
@@ -189,6 +195,7 @@ if(answergood){
 $("#startgame").click(
 function(){
 	$("#startgame").slideUp();
+	$("#instructions").slideUp();
 	$("#maindiv").show();
 	startgame();
 }
