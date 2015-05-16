@@ -179,6 +179,7 @@ if(answer){
 	clearInterval(isitcolliding);
 	highscore();
 	window.location.reload();
+	window.plugins.insomnia.allowSleepAgain();
 }
 
 });
@@ -194,6 +195,7 @@ if(answergood){
 }
 $("#startgame").click(
 function(){
+	window.plugins.insomnia.keepAwake();
 	$("#startgame").slideUp();
 	$("#instructions").slideUp();
 	$("#maindiv").show();
