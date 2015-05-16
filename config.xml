@@ -12,7 +12,6 @@
     <preference name="orientation" value="portrait" />
     
     <gap:plugin name="org.apache.cordova.device-motion" />
-    <gap:plugin name="org.apache.cordova.device-orientation" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <icon src="icon.png" />
        
