@@ -86,7 +86,7 @@
 
 
 		var maxX = astfield.clientWidth  - mainship.clientWidth;
-		var maxY = astfield.clientHeight - mainship.clientHeight - 50;
+		var maxY = astfield.clientHeight - mainship.clientHeight;
 
 		function handleOrientation(event) {
 
@@ -94,7 +94,8 @@
 
 
 
-
+ if (y >  90) { y =  90};
+  if (y < -90) { y = -90};
 
 //making it reverse
 			y = -1 * y;
@@ -120,7 +121,7 @@
 
 		$('#maindiv').hide();
 		$("#right").hide();
-		$("#left").hide();
+		
 		function startgame(){
 			$("#right").show();
 			$("#left").show();
