@@ -77,14 +77,9 @@ right :0;top:0 ;left:0;bottom:0;
 <script src="www/js/jquery-2.1.4.js"></script>
 <script>
 document.addEventListener("deviceready", gameready, false);
-window.onerror = function(a,b,c) {
-  alert(a); // etc
-alert(b);
-alert(c);
-}
+
 function gameready(){
 
-window.plugins.insomnia.keepAwake();
 
 var mainship   = document.querySelector('#maindiv');
 var astfield = document.querySelector('#right');
