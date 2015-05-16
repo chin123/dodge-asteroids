@@ -60,11 +60,6 @@
 		}
 
 	</style>
-	<script>
-		window.onerror = function(msg, file, line) {
-			alert(msg + '; ' + file + '; ' + line);
-		};
-	</script>
 	<script src="cordova.js"></script>
 </head>
 <body>
@@ -201,16 +196,11 @@
 		}
 		$("#startgame").click(
 				function(){
-					alert("starting game 1");
-					window.plugins.insomnia.keepAwake(
-							function(a) {console.log('keepAwake success: ' + a)},
-							function(b) {console.log('keepAwake error: ' + b)}
-					);
-					alert("starting game 2");
 					$("#startgame").slideUp();
 					$("#instructions").slideUp();
 					$("#maindiv").show();
 					startgame();
+					window.plugins.insomnia.keepAwake();
 				}
 		);
 	}
