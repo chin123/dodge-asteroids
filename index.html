@@ -4,6 +4,7 @@
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
 		<title>Dodge the asteroids!</title>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <style>
 body {
 background-color : black;
@@ -63,7 +64,7 @@ right :0;top:0 ;left:0;bottom:0;
 	</head>
 	<body>
 
-		<div id ="startgame" onclick="window.insomnia.keepAwake()"><div id="starttext""><strong>START</strong></div></div><br>
+		<div id ="startgame"><div id="starttext""><strong>START</strong></div></div><br>
 		<div id="instructions"><strong>Tilt left to go right,tilt right to go left.<br>Collect the green blocks to get a score bonus.<br>Collecting the red blocks ends the game.<br>Good Luck!</strong></div>
 		<div class="asteroid"></div>
 	<div class="good"></div>
@@ -78,7 +79,7 @@ right :0;top:0 ;left:0;bottom:0;
 document.addEventListener("deviceready", gameready(), false);
 
 function gameready(){
-
+window.plugins.insomnia.keepAwake();
 
 var mainship   = document.querySelector('#maindiv');
 var astfield = document.querySelector('#right');
