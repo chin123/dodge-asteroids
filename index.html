@@ -63,7 +63,8 @@ right :0;top:0 ;left:0;bottom:0;
 	</head>
 	<body>
 
-		<div id ="startgame"  onclick="window.plugins.insomnia.keepAwake()"><div id="starttext""><strong>START</strong></div></div><br>
+		<div id ="startgame"  onclick="    window.plugins.insomnia.keepAwake(function(a) {alert('keepAwake success: ' + a)}, function(b) {alert('keepAwake error: ' + b)});
+"><div id="starttext"><strong>START</strong></div></div><br>
 		<div id="instructions"><strong>Tilt left to go right,tilt right to go left.<br>Collect the green blocks to get a score bonus.<br>Collecting the red blocks ends the game.<br>Good Luck!</strong></div>
 		<div class="asteroid"></div>
 	<div class="good"></div>
@@ -75,7 +76,7 @@ right :0;top:0 ;left:0;bottom:0;
 	</body>
 <script src="www/js/jquery-2.1.4.js"></script>
 <script>
-document.addEventListener("deviceready", gameready(), false);
+document.addEventListener("deviceready", gameready, false);
 
 function gameready(){
 
