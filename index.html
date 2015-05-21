@@ -48,8 +48,8 @@
 		}
 		#right{
 			position : fixed;
-			width : 99%;
 			right :0;top:0 ;left:0;bottom:0;
+		
 
 		}
 		#instructions{
@@ -84,8 +84,7 @@
 		var astfield = document.querySelector('#right');
 
 
-		var maxX = astfield.clientWidth  - mainship.clientWidth;
-		var maxY = astfield.clientHeight - mainship.clientHeight;
+		var maxY = astfield.clientWidth - mainship.clientWidth;
 
 		function handleOrientation(event) {
 
@@ -106,7 +105,7 @@
 			// 15 is half the size of the mainship
 			// It center the positioning point to the center of the mainship
 
-			mainship.style.left = (maxY*y/180 - 150) + "px";
+			mainship.style.left = (maxY*y/180 - 15) + "px";
 		}
 
 		window.addEventListener('deviceorientation', handleOrientation);
