@@ -1,5 +1,5 @@
 # Dodge asteroids
 This uses the device orientation api to control the main player.
 
-#LICENSE
+# LICENSE
 GPL v3
