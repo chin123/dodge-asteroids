@@ -10,7 +10,7 @@
     <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
-    <gap:plugin name="nl.x-services.plugins.insomnia" />
+    <gap:plugin name="cordova-plugin-insomnia" />
     <gap:plugin name="org.apache.cordova.device-motion" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <icon src="icon.png" />
