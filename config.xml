@@ -11,8 +11,8 @@
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
     <plugin name="cordova-plugin-insomnia" />
-    <gap:plugin name="org.apache.cordova.device-motion" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
+    <plugin name="org.apache.cordova.device-motion" />
+    <plugin name="org.apache.cordova.splashscreen" />
     <icon src="icon.png" />
        
 </widget>
